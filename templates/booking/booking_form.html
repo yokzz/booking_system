@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <h1>Booking Form: </h1>
+        <form method="POST", action="{% url 'booking-form' %}">
+
+            {% csrf_token %}
+
+            <div>
+                <label for="room_number">Room Number:</label>
+                <input type="text"  id="room_number" name="room_number" required>
+            </div>
+
+            <div>
+                <label for="start_time">Start Time:</label>
+                <input type="datetime-local"  id="start_time" name="start_time" required>
+            </div>
+
+            <div>
+                <label for="end_time">End Time:</label>
+                <input type="datetime-local"  id="end_time" name="end_time" required>
+            </div>
+
+            <button type="submit">Save</button>
+        </form>
+
+    {% else %}
+
+    <h1>You are not authenticated</h1>
+
+    {% endif %}
+
+{% endblock content %}
