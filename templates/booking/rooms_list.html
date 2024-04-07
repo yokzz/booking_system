@@ -1,9 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 <ul>
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
         {% for room in rooms %}
-
-        <li><a href="{% url 'room' room.id %}">{{ room.number }}</a></li>
+        <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td><a href="{% url 'room' room.id %}">{{ room.number }}</a></td>
+                <td>{{room.capacity}}</td>
+                <td>{{room.description}}</td>
+              </tr>               
 
         {% endfor %}
 </ul>
