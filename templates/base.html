@@ -7,16 +7,23 @@
     {% load static %}
     <link href='{% static "booking/css/style.css" %}' rel="stylesheet">
   </head>
-  <body>
-    <header>
-      <h1>Booking service</h1>
-      <a href="/">Room list</a>
-      <hr>
-    </header>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="static/images/logo.png" alt="Logo" width="80" height="60" class="d-inline-block align-text-top"><h1 class="display-6">Booking system</h1>
+      </a>
 
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="" class="nav-link active" aria-current="page">Rooms list</a></li>
+        <li class="nav-item"><a href="booking/" class="nav-link">Book room</a></li>
+      </ul>
+    </header>
+  </div>
+  <body>  
     {% block content %}
 
     {% endblock content %}
+
   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>  

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponse
 from booking.models import *
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='register-form')
 def get_rooms_list(request):
     rooms = Room.objects.all()
     context = {
@@ -8,6 +10,7 @@ def get_rooms_list(request):
     }
     return render(request, 'booking/rooms_list.html', context)
 
+@login_required(login_url='register-form')
 def get_room_details(request, pk):
     room = Room.objects.get(id=pk)
     context = {
