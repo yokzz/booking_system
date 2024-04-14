@@ -1,25 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if request.user.is_authenticated%}
-        <h1>Booking form</h1>
+        <p class="h2">Booking form</p>
         <form method="POST" action="{% url 'booking-form' %}">
         {% csrf_token %}
-        <div>
-            <label for="room_number">Room number:</label>
-            <input type="text" id="room_number" name="room_number">
-        </div>
-        <br>
-        <div>
-            <label for="start_time">Start time:</label>
-            <input type="datetime-local" id="start_time" name="start_time">
-        </div>
-        <br>
-        <div>
-            <label for="end_time">End time:</label>
-            <input type="datetime-local" id="end_time" name="end_time">
-        </div>
-        <br>
-        <button type="submit">Book this room</button>
+        <div class="mb-3">
+            <label for="room_number" class="form-label">Room number:</label>
+            <input type="text" class="form-control" id="room_number" name="room_number" placeholder="example: 1A">
+          </div>
+        <div class="mb-3">
+            <label for="start_time" class="form-label">Start time:</label>
+            <input type="datetime-local" class="form-control" id="start_time" name="start_time">
+          </div>
+        <div class="mb-3">
+            <label for="end_time" class="form-label">End time:</label>
+            <input type="datetime-local" class="form-control" id="end_time" name="end_time">
+          </div>   
+        <button type="submit" class="button-18">Book this room</button>
         </form>
 
     {% else %}
@@ -28,4 +25,4 @@
 
     {% endif%}
 
-{% endblock content%}
+    {% endblock content %}
